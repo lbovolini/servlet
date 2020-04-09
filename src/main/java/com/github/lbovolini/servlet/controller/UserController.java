@@ -12,7 +12,7 @@ public class UserController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/pages/user/register.jsp").forward(req, resp);
+        req.getRequestDispatcher("/pages/user/register.xhtml").forward(req, resp);
     }
 
     @Override
@@ -31,6 +31,6 @@ public class UserController extends HttpServlet {
         user.setPhone(phone);
         user.setBirthday(birthday);
 
-        resp.sendRedirect(req.getContextPath() + "/pages/home.jsp");
+        resp.sendRedirect(req.getContextPath() + "/pages/home.xhtml");
     }
 }

@@ -12,6 +12,6 @@ public class App extends HttpServlet
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        request.getRequestDispatcher("/pages/home.jsp").forward(request, response);
+        request.getRequestDispatcher("/pages/home.xhtml").forward(request, response);
     }
 }

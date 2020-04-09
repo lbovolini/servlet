@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>User registration</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="firstName">First Name</h:outputLabel>
+                <h:inputText id="firstName"/>
+                <h:outputLabel for="lastName">Last Name</h:outputLabel>
+                <h:inputText id="lastName"/>
+                <h:outputLabel for="email">Email Address</h:outputLabel>
+                <h:inputText id="email"/>
+                <h:outputLabel for="phone">Phone number</h:outputLabel>
+                <h:inputText id="phone"/>
+                <h:outputLabel for="birthday">Birthday</h:outputLabel>
+                <h:inputText id="birthday"/>
+                <h:commandButton id="submit" value="Save" action="home"/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
