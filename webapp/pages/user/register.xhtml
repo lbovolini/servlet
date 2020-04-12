@@ -10,16 +10,16 @@
         <h:form>
             <h:panelGrid columns="2">
                 <h:outputLabel for="firstName">First Name</h:outputLabel>
-                <h:inputText id="firstName"/>
+                <h:inputText id="firstName" value="#{user.firstName}"/>
                 <h:outputLabel for="lastName">Last Name</h:outputLabel>
-                <h:inputText id="lastName"/>
+                <h:inputText id="lastName" value="#{user.lastName}"/>
                 <h:outputLabel for="email">Email Address</h:outputLabel>
-                <h:inputText id="email"/>
+                <h:inputText id="email" value="#{user.email}"/>
                 <h:outputLabel for="phone">Phone number</h:outputLabel>
-                <h:inputText id="phone"/>
+                <h:inputText id="phone" value="#{user.phone}"/>
                 <h:outputLabel for="birthday">Birthday</h:outputLabel>
-                <h:inputText id="birthday"/>
-                <h:commandButton id="submit" value="Save" action="home"/>
+                <h:inputText id="birthday" value="#{user.birthday}"/>
+                <h:commandButton id="submit" value="Save" action="#{userController.create(user)}"/>
             </h:panelGrid>
         </h:form>
     </h:body>

@@ -1,7 +1,9 @@
 package com.github.lbovolini.servlet.model;
 
+import javax.faces.bean.ManagedBean;
 import java.io.Serializable;
 
+@ManagedBean
 public class User implements Serializable {
 
     private String firstName;
