@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
@@ -18,7 +17,9 @@
                 <h:outputLabel for="phone">Phone number</h:outputLabel>
                 <h:inputText id="phone" value="#{user.phone}"/>
                 <h:outputLabel for="birthday">Birthday</h:outputLabel>
-                <h:inputText id="birthday" value="#{user.birthday}"/>
+                <h:inputText id="birthday" value="#{user.birthday}">
+                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                </h:inputText>
                 <h:commandButton id="submit" value="Save" action="#{userController.create(user)}"/>
             </h:panelGrid>
         </h:form>

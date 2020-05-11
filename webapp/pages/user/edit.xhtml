@@ -1,0 +1,45 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://www.w3.org/1999/XSL/Transform"
+      xmlns:c="http://java.sun.com/jstl/core">
+<h:head>
+    <title>User registration</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</h:head>
+<h:body>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="firstName">First Name</h:outputLabel>
+            <h:inputText id="firstName" value="#{user.firstName}"/>
+            <h:outputLabel for="lastName">Last Name</h:outputLabel>
+            <h:inputText id="lastName" value="#{user.lastName}"/>
+            <h:outputLabel for="email">Email Address</h:outputLabel>
+            <h:inputText id="email" value="#{user.email}"/>
+            <h:outputLabel for="phone">Phone number</h:outputLabel>
+            <h:inputText id="phone" value="#{user.phone}"/>
+            <h:outputLabel for="birthday">Birthday</h:outputLabel>
+            <h:inputText id="birthday" value="#{user.birthday}">
+                <f:convertDateTime pattern="dd/MM/yyyy" />
+            </h:inputText>
+
+            <h:commandButton id="submit" value="Save" action="#{userController.update(user)}"/>
+            <button id="btn" value="Send" type="button"/>
+        </h:panelGrid>
+    </h:form>
+    <script>
+    $("#btn").click( function()
+           {
+             alert('button clicked');
+           }
+      );
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: data,
+      success: success,
+      dataType: dataType
+    });
+    </script>
+</h:body>
+</html>

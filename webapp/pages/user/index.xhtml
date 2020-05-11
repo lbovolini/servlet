@@ -1,0 +1,73 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>User Details</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</h:head>
+    <h:body>
+        <h:dataTable value="#{userController.findAll(0)}" var="u">
+            <h:column>
+                <f:facet name="header">User Name</f:facet>
+                <h:outputText value="#{u.firstName}" styleClass="first-name"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Last Name</f:facet>
+                <h:outputText value="#{u.lastName}" styleClass="last-name"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Email ID</f:facet>
+                <h:outputText value="#{u.email}" styleClass="email"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Phone</f:facet>
+                <h:outputText value="#{u.phone}" styleClass="phone"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Birthday</f:facet>
+                <h:outputText value="#{u.birthday}" styleClass="birthday">
+                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                </h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Update</f:facet>
+                <h:form>
+                    <h:commandButton id="update" value="Update" action="#{userController.edit(u.id)}"/>
+                </h:form>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Delete</f:facet>
+                <h:form>
+                    <h:commandButton value="Delete" action="#{userController.delete(u.id)}"/>
+                </h:form>
+            </h:column>
+        </h:dataTable>
+
+        <script>
+        $("thead tr").each(function() {
+            $(this).children("th").slice(0, 5).click(function(e) {
+                //alert("button clicked");
+                console.log(e.toElement.cellIndex);
+                $.ajax({
+                    type: "POST",
+                    url: "/webapp/user",
+                    data: { "index": e.toElement.cellIndex },
+                    success: function(res) {
+                        console.log(res[0].id);
+
+                        $("tbody tr").each(function(i) {
+                            $(this).children("td").find(".first-name").text(res[i].firstName);
+                            $(this).children("td").find(".last-name").text(res[i].lastName);
+                            $(this).children("td").find(".email").text(res[i].email);
+                            $(this).children("td").find(".phone").text(res[i].phone);
+                            $(this).children("td").find(".birthday").text(res[i].birthday);
+                        });
+                    }
+                });
+            });
+        });
+        </script>
+    </h:body>
+</html>
